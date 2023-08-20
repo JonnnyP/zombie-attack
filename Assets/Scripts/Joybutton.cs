@@ -7,14 +7,17 @@ public class Joybutton : MonoBehaviour, IPointerUpHandler, IPointerDownHandler {
 
     [HideInInspector]
     protected bool Pressed;
+    
+    public ProjectileBehaviour ProjectilePrefab;
+    public Transform LaunchOffset;
 
-    void Start() {
-        
+    private void Update() {
     }
 
-    // Update is called once per frame
     public void OnPointerDown(PointerEventData eventData) {
         Pressed = true;
+
+        Instantiate(ProjectilePrefab, LaunchOffset.position, transform.rotation);
     }
 
     public void OnPointerUp (PointerEventData eventData) {
