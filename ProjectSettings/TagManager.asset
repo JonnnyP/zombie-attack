@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Enemy
   - Wall
+  - movement-joystick
+  - weapon-joystick
   layers:
   - Default
   - TransparentFX
