@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class PlayerScript : MonoBehaviour {
     
-    protected Joystick joystick;
-    protected Joybutton joybutton;
+    protected Joystick movementJoystick;
+    protected Joystick weaponJoystick;
 
     private Rigidbody2D rigidbody2D;
 
@@ -13,18 +13,20 @@ public class PlayerScript : MonoBehaviour {
 
     private void Start() {
 
-        joystick = FindObjectOfType<Joystick>();
-        joybutton = FindObjectOfType<Joybutton>();
+        // joystick = FindObjectOfType<Joystick>();
+        // joybutton = FindObjectOfType<Joybutton>();
         rigidbody2D = GetComponent<Rigidbody2D>();
+
+        movementJoystick = GameObject.FindGameObjectWithTag("movement-joystick").GetComponent<Joystick>();
+        weaponJoystick = GameObject.FindGameObjectWithTag("weapon-joystick").GetComponent<Joystick>();
 
         rigidbody2D.gravityScale = 0f;
     }
 
     private void Update() {
 
-        float horizontalMovement = joystick.Horizontal * movementSpeed;
-        float verticalMovement = joystick.Vertical * movementSpeed;
-
+        float horizontalMovement = movementJoystick.Horizontal * movementSpeed;
+        float verticalMovement = movementJoystick.Vertical * movementSpeed;
 
         Vector2 newPosition = rigidbody2D.position + new Vector2(horizontalMovement, verticalMovement) * Time.deltaTime;
         rigidbody2D.MovePosition(newPosition);
