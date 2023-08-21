@@ -13,8 +13,6 @@ public class PlayerScript : MonoBehaviour {
 
     private void Start() {
 
-        // joystick = FindObjectOfType<Joystick>();
-        // joybutton = FindObjectOfType<Joybutton>();
         rigidbody2D = GetComponent<Rigidbody2D>();
 
         movementJoystick = GameObject.FindGameObjectWithTag("movement-joystick").GetComponent<Joystick>();

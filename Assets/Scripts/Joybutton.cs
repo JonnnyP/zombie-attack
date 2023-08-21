@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class Joybutton : MonoBehaviour, IPointerUpHandler, IPointerDownHandler {
+public class Joystick : MonoBehaviour, IPointerUpHandler, IPointerDownHandler {
 
     [HideInInspector]
     protected bool Pressed;
@@ -14,13 +14,13 @@ public class Joybutton : MonoBehaviour, IPointerUpHandler, IPointerDownHandler {
     private void Update() {
     }
 
-    public void OnPointerDown(PointerEventData eventData) {
-        Pressed = true;
+    // public void OnPointerDown(PointerEventData eventData) {
+    //     Pressed = true;
 
-        Instantiate(ProjectilePrefab, LaunchOffset.position, transform.rotation);
-    }
+    //     Instantiate(ProjectilePrefab, LaunchOffset.position, transform.rotation);
+    // }
 
-    public void OnPointerUp (PointerEventData eventData) {
-        Pressed = false;
-    }
+    // public void OnPointerUp (PointerEventData eventData) {
+    //     Pressed = false;
+    // }
 }
