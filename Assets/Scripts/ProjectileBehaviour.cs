@@ -8,11 +8,11 @@ public class ProjectileBehaviour : MonoBehaviour {
     private void Update() {
         
         // shoots up only
-        transform.position += transform.up * Time.deltaTime * Speed;
+        // transform.position += transform.up * Time.deltaTime * Speed;
         
         // projectiles stay in place
         // need to change joybutton to joystick so player can turn/aim
-        // transform.position += transform.forward * Time.deltaTime * Speed;
+        transform.position += transform.forward * Time.deltaTime * Speed;
     }   
 
     private void OnCollisionEnter2D(Collision2D collision) {
