@@ -375,7 +375,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5.625
+  orthographic size: 5.627063
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -1380,7 +1380,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ProjectilePrefab: {fileID: 6108987106409806635, guid: 43972ee8aa71e474bb1acb54154f118c, type: 3}
   LaunchOffset: {fileID: 10758462}
-  movementSpeed: 100
+  projectileSpeed: 6
+  shootCooldown: 0.3
+  movementSpeed: 150
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

@@ -9,6 +9,9 @@ public class PlayerScript : MonoBehaviour {
 
     public ProjectileBehaviour ProjectilePrefab;
     public Transform LaunchOffset;
+    public float projectileSpeed;
+    public float shootCooldown = 0.2f; // Time between shots
+    private float lastShootTime;
 
     private Rigidbody2D rigidbody2D;
 
@@ -45,8 +48,23 @@ public class PlayerScript : MonoBehaviour {
             // Apply the rotation
             transform.rotation = Quaternion.Euler(new Vector3(0f, 0f, aimAngle));
 
-            // Instantiate(ProjectilePrefab, LaunchOffset.position, transform.rotation);
-
+            if (Time.time - lastShootTime >= shootCooldown){
+                Shoot();
+                lastShootTime = Time.time;
+            }
         }
+    }
+
+    private void Shoot() {
+        ProjectileBehaviour newProjectile = Instantiate(ProjectilePrefab, LaunchOffset.position, transform.rotation);
+        
+        // Get the rigidbody of the projectile
+        Rigidbody2D projectileRigidbody = newProjectile.GetComponent<Rigidbody2D>();
+
+        // Calculate the aim direction
+        Vector2 aimDirection = new Vector2(weaponJoystick.Horizontal, weaponJoystick.Vertical).normalized;
+
+        // Apply velocity to the projectile's rigidbody
+        projectileRigidbody.velocity = aimDirection * projectileSpeed; // You need to set the value of projectileSpeed
     }
 }
