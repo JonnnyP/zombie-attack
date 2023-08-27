@@ -308,6 +308,18 @@ PrefabInstance:
       propertyPath: m_TagString
       value: weapon-joystick
       objectReference: {fileID: 0}
+    - target: {fileID: 2929252285020698103, guid: aaa2c939c0359ac4dbce3f49e8b90252, type: 3}
+      propertyPath: m_Color.b
+      value: 0.8962264
+      objectReference: {fileID: 0}
+    - target: {fileID: 2929252285020698103, guid: aaa2c939c0359ac4dbce3f49e8b90252, type: 3}
+      propertyPath: m_Color.g
+      value: 0.5453453
+      objectReference: {fileID: 0}
+    - target: {fileID: 2929252285020698103, guid: aaa2c939c0359ac4dbce3f49e8b90252, type: 3}
+      propertyPath: m_Color.r
+      value: 0.87457675
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -375,7 +387,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5.627063
+  orthographic size: 5.076923
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -419,7 +431,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   wireColor: {r: 1, g: 1, b: 1, a: 1}
-  UnitsSize: 20
+  UnitsSize: 22
   constraint: 0
   camera: {fileID: 519420031}
 --- !u!1 &622668640
@@ -777,7 +789,7 @@ Transform:
   m_GameObject: {fileID: 1607698161}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.92060006, y: -1.2956, z: 0}
+  m_LocalPosition: {x: 4.66, y: 3.45, z: 0}
   m_LocalScale: {x: 0.33768356, y: 0.33768356, z: 0.33768356}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1382,7 +1394,7 @@ MonoBehaviour:
   LaunchOffset: {fileID: 10758462}
   projectileSpeed: 6
   shootCooldown: 0.3
-  movementSpeed: 150
+  movementSpeed: 110
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

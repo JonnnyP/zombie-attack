@@ -15,7 +15,7 @@ public class PlayerScript : MonoBehaviour {
 
     private Rigidbody2D rigidbody2D;
 
-    public float movementSpeed = 300f;
+    public float movementSpeed = 150f;
 
     private void Start() {
 
@@ -40,7 +40,9 @@ public class PlayerScript : MonoBehaviour {
 
         // Calculate aim direction angle
         Vector2 aimDirection = new Vector2(aimX, aimY);
+        
         if (aimDirection.magnitude > 0.1f) {
+
             // Calculate the angle and adjust for the left-handed coordinate system
             float aimAngle = Mathf.Atan2(aimDirection.y, aimDirection.x) * Mathf.Rad2Deg;
             aimAngle -= 90f; // Adjust for sprite orientation
