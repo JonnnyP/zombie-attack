@@ -15,7 +15,7 @@ public class PlayerScript : MonoBehaviour {
 
     private Rigidbody2D rigidbody2D;
 
-    public float movementSpeed = 150f;
+    public float movementSpeed = 12f;
 
     private void Start() {
 

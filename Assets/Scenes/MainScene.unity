@@ -1394,7 +1394,7 @@ MonoBehaviour:
   LaunchOffset: {fileID: 10758462}
   projectileSpeed: 6
   shootCooldown: 0.3
-  movementSpeed: 110
+  movementSpeed: 12
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
