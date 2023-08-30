@@ -10,7 +10,7 @@ public class PlayerScript : MonoBehaviour {
     public ProjectileBehaviour ProjectilePrefab;
     public Transform LaunchOffset;
     public float projectileSpeed;
-    public float shootCooldown = 0.2f; // Time between shots
+    public float shootCooldown = 0.15f; // Time between shots
     private float lastShootTime;
 
     private Rigidbody2D rigidbody2D;

@@ -387,7 +387,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5.076923
+  orthographic size: 6.1892114
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -773,6 +773,7 @@ GameObject:
   - component: {fileID: 1607698165}
   - component: {fileID: 1607698164}
   - component: {fileID: 1607698163}
+  - component: {fileID: 1607698166}
   m_Layer: 0
   m_Name: zombie
   m_TagString: Enemy
@@ -909,6 +910,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1607698166
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1607698161}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8cd408240e6f2e479326373f2dd4b49, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerTransform: {fileID: 2077594243}
+  zombieMoveSpeed: 8
 --- !u!1 &1676912521
 GameObject:
   m_ObjectHideFlags: 0
@@ -1365,7 +1380,7 @@ Rigidbody2D:
   m_UseAutoMass: 0
   m_Mass: 1
   m_LinearDrag: 0
-  m_AngularDrag: 0
+  m_AngularDrag: 1
   m_GravityScale: 0
   m_Material: {fileID: 0}
   m_IncludeLayers:
