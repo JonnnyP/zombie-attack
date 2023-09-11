@@ -8,6 +8,7 @@ TagManager:
   - Wall
   - movement-joystick
   - weapon-joystick
+  - projectile
   layers:
   - Default
   - TransparentFX

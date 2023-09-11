@@ -13,7 +13,7 @@ public class ZombieSpawnManager : MonoBehaviour {
     // bool gameStarted = false;
     
     void Start() {
-        
+        StartSpawning();
     }
 
     void Update() {
