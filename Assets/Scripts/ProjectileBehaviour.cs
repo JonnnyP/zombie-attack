@@ -8,9 +8,15 @@ public class ProjectileBehaviour : MonoBehaviour {
     private void Update() {
         
         transform.position += transform.forward * Time.deltaTime * Speed;
+
+        Invoke("DestroyObject", 0.5f);
     }   
 
     private void OnCollisionEnter2D(Collision2D collision) {
+        DestroyObject();
+    }
+
+    private void DestroyObject() {
         Destroy(gameObject);
     }
 }

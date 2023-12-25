@@ -12,6 +12,7 @@ public class PlayerScript : MonoBehaviour {
     public float projectileSpeed;
     public float shootCooldown = 0.1f; // Time between shots
     private float lastShootTime;
+    public float projectileLifeSpawn; // Limit the distance the projectile travels
 
     private Rigidbody2D rigidbody2D;
 
