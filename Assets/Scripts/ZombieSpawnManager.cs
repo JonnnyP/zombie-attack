@@ -24,12 +24,16 @@ public class ZombieSpawnManager : MonoBehaviour {
         InvokeRepeating("SpawnZombie", 0.5f, spawnRate);
     }
 
-
     private void SpawnZombie() {
-        Vector3 spawnPos = spawnpoint.position;
-        spawnPos.x = Random.Range(-maxX, maxX);
-        spawnPos.y = Random.Range(-maxY, maxY);
+        Vector3 spawnPoint = GetRandomSpawnPoint();
 
-        Instantiate(zombie, spawnPos, Quaternion.identity);
+        Instantiate(zombie, spawnPoint, Quaternion.identity);
+    }
+
+    public Vector3 GetRandomSpawnPoint() {
+        // Get random position on the scene bounds
+        float x = Random.Range(Camera.main.aspect * Camera.main.orthographicSize, -Camera.main.aspect * Camera.main.orthographicSize);
+        float y = Random.Range(Camera.main.orthographicSize, -Camera.main.orthographicSize);
+        return new Vector3(x, y, 0f);
     }
 }

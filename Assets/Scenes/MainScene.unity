@@ -1263,7 +1263,9 @@ MonoBehaviour:
   LaunchOffset: {fileID: 10758462}
   projectileSpeed: 6
   shootCooldown: 0.3
-  movementSpeed: 12
+  projectileLifeSpawn: 0
+  shootSound: {fileID: 8300000, guid: 3349810c84d3f49e58d12a350680e38e, type: 3}
+  movementSpeed: 10
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

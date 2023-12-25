@@ -13,6 +13,7 @@ public class PlayerScript : MonoBehaviour {
     public float shootCooldown = 0.1f; // Time between shots
     private float lastShootTime;
     public float projectileLifeSpawn; // Limit the distance the projectile travels
+    public AudioClip shootSound;
 
     private Rigidbody2D rigidbody2D;
 
@@ -66,6 +67,8 @@ public class PlayerScript : MonoBehaviour {
 
         // Calculate the aim direction
         Vector2 aimDirection = new Vector2(weaponJoystick.Horizontal, weaponJoystick.Vertical).normalized;
+
+        AudioSource.PlayClipAtPoint(shootSound, transform.position);
 
         // Apply velocity to the projectile's rigidbody
         projectileRigidbody.velocity = aimDirection * projectileSpeed; // You need to set the value of projectileSpeed

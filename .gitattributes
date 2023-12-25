@@ -6,3 +6,4 @@
 *.meta linguist-generated
 *.prefab linguist-generated
 *.unity linguist-generated
+*.mp3 filter=lfs diff=lfs merge=lfs -text
