@@ -56,3 +56,5 @@ crashlytics-build.properties
 
 .DS_Store
 *.mp3
+*.keystore
+zombie-attack_BurstDebugInformation_DoNotShip/
