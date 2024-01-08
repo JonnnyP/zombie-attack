@@ -7,6 +7,7 @@ public class ZombieScript : MonoBehaviour {
     public Transform playerTransform;
     public float zombieMoveSpeed = 1.5f;
     private Rigidbody2D rb;
+    public GameObject expPoint;
 
     void Start() {
         rb = GetComponent<Rigidbody2D>();
@@ -22,6 +23,9 @@ public class ZombieScript : MonoBehaviour {
 
         if(collision.gameObject.tag == "projectile") {
             Destroy(gameObject);
+
+            Instantiate(expPoint, transform.position, Quaternion.identity);
+
         }
     }
 }

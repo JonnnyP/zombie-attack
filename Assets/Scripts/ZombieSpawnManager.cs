@@ -10,20 +10,14 @@ public class ZombieSpawnManager : MonoBehaviour {
     public Transform spawnpoint;
     public float spawnRate;
 
-    // bool gameStarted = false;
-    
     void Start() {
         StartSpawning();
-    }
-
-    void Update() {
-        
     }
 
     private void StartSpawning() {
         InvokeRepeating("SpawnZombie", 0.5f, spawnRate);
     }
-
+    
     private void SpawnZombie() {
         Vector3 spawnPoint = GetRandomSpawnPoint();
 

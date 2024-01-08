@@ -17,7 +17,7 @@ public class PlayerScript : MonoBehaviour {
 
     private Rigidbody2D rigidbody2D;
 
-    public float movementSpeed = 10f;
+    public float movementSpeed = 7f;
 
     private void Start() {
 
@@ -72,5 +72,12 @@ public class PlayerScript : MonoBehaviour {
 
         // Apply velocity to the projectile's rigidbody
         projectileRigidbody.velocity = aimDirection * projectileSpeed; // You need to set the value of projectileSpeed
+    }
+
+    private void OnTriggerEnter2D(Collider2D other) {
+
+        if (other.CompareTag("xp-point")) {
+            
+        }
     }
 }

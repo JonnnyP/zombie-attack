@@ -16,8 +16,8 @@ TagManager:
   - 
   - Water
   - UI
-  - 
-  - 
+  - PlayField
+  - ExpPoints
   - 
   - 
   - 
@@ -45,4 +45,13 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Background
+    uniqueID: 89440893
+    locked: 0
+  - name: Foreground
+    uniqueID: 4265590393
+    locked: 0
+  - name: Enemies
+    uniqueID: 550862829
     locked: 0
