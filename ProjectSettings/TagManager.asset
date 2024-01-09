@@ -4,12 +4,12 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Enemy
   - Wall
   - movement-joystick
   - weapon-joystick
   - projectile
   - xp-point
+  - enemy
   layers:
   - Default
   - TransparentFX
@@ -20,8 +20,8 @@ TagManager:
   - PlayField
   - ExpPoints
   - 
-  - 
-  - 
+  - Player
+  - Enemies
   - 
   - 
   - 

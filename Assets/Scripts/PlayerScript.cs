@@ -7,6 +7,7 @@ public class PlayerScript : MonoBehaviour {
     protected Joystick movementJoystick;
     protected Joystick weaponJoystick;
 
+    // Projectile variables
     public ProjectileBehaviour ProjectilePrefab;
     public Transform LaunchOffset;
     public float projectileSpeed;
@@ -18,6 +19,8 @@ public class PlayerScript : MonoBehaviour {
     private Rigidbody2D rigidbody2D;
 
     public float movementSpeed = 7f;
+
+    private int totalXP = 0;
 
     private void Start() {
 
@@ -74,10 +77,54 @@ public class PlayerScript : MonoBehaviour {
         projectileRigidbody.velocity = aimDirection * projectileSpeed; // You need to set the value of projectileSpeed
     }
 
-    private void OnTriggerEnter2D(Collider2D other) {
+    private void OnCollisionEnter2D(Collision2D collision) {
 
-        if (other.CompareTag("xp-point")) {
-            // XpPoint xpPointscript = other.GetComponent();
+        Rigidbody2D otherRigidBody = collision.gameObject.GetComponent<Rigidbody2D>();
+
+        if (collision.gameObject.CompareTag("xp-point")) {
+        
+            HandleXPPointCollision(collision);
+
+        } else if (collision.gameObject.CompareTag("enemy")) {
+
+            HandleEnemyCollision(collision);
         }
+    }
+
+
+    private void HandleXPPointCollision(Collision2D xpCollision) {
+
+
+        ExpPointScript expPointScript = xpCollision.gameObject.GetComponent<ExpPointScript>();
+
+        if( expPointScript != null) {
+
+            AddXP(expPointScript.XPValue);
+            expPointScript.DeleteXpPoint();
+        }
+    }
+
+    public int TotalXP {
+
+        get { return totalXP; }
+    }
+
+    public void AddXP(int xpAmount) {
+        
+        totalXP += xpAmount;
+
+        Debug.Log("Player XP increased. Current XP: " + totalXP);
+     
+        // Update UI
+    }
+
+    private void HandleEnemyCollision(Collision2D enemyCollision) {
+
+        // ZombieScript zombieScript = enemyCollision.gameObject.GetComponent<ZombieScript>();
+        
+        // if (zombieScript != null) {
+        //     zombieScript.SpawnXPPoint();
+        //     zombieScript.DeleteZombie();
+        // }
     }
 }

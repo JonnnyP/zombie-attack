@@ -19,13 +19,23 @@ public class ZombieScript : MonoBehaviour {
         rb.velocity = direction * zombieMoveSpeed;
     }
 
-    private void OnCollisionEnter2D(Collision2D collision) {
-
-        if(collision.gameObject.tag == "projectile") {
-            Destroy(gameObject);
-
-            Instantiate(expPoint, transform.position, Quaternion.identity);
-
-        }
+    public void SpawnXPPoint() {
+        
+        Instantiate(expPoint, transform.position, Quaternion.identity);
     }
+
+    public void DeleteZombie() {
+
+        Destroy(gameObject);
+    }
+
+    // private void OnCollisionEnter2D(Collision2D collision) {
+
+    //     if(collision.gameObject.tag == "projectile") {
+    //         Destroy(gameObject);
+
+    //         Instantiate(expPoint, transform.position, Quaternion.identity);
+
+    //     }
+    // }
 }
