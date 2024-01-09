@@ -34,13 +34,14 @@ public class PlayerScript : MonoBehaviour {
     }
 
     private void Update() {
-
+        // Handles movement 
         float horizontalMovement = movementJoystick.Horizontal * movementSpeed;
         float verticalMovement = movementJoystick.Vertical * movementSpeed;
 
         Vector2 newPosition = rigidbody2D.position + new Vector2(horizontalMovement, verticalMovement) * Time.deltaTime;
         rigidbody2D.MovePosition(newPosition);
     
+        // Handles weapon
         float aimX = weaponJoystick.Horizontal;
         float aimY = weaponJoystick.Vertical;
 
