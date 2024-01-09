@@ -28,14 +28,4 @@ public class ZombieScript : MonoBehaviour {
 
         Destroy(gameObject);
     }
-
-    // private void OnCollisionEnter2D(Collision2D collision) {
-
-    //     if(collision.gameObject.tag == "projectile") {
-    //         Destroy(gameObject);
-
-    //         Instantiate(expPoint, transform.position, Quaternion.identity);
-
-    //     }
-    // }
 }

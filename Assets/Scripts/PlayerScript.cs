@@ -11,16 +11,17 @@ public class PlayerScript : MonoBehaviour {
     public ProjectileBehaviour ProjectilePrefab;
     public Transform LaunchOffset;
     public float projectileSpeed;
-    public float shootCooldown = 0.1f; // Time between shots
+    public float shootCooldown; // Time between shots
     private float lastShootTime;
     public float projectileLifeSpawn; // Limit the distance the projectile travels
     public AudioClip shootSound;
 
     private Rigidbody2D rigidbody2D;
 
-    public float movementSpeed = 7f;
+    public float movementSpeed;
 
     private int totalXP = 0;
+    private int totalHP = 5;
 
     private void Start() {
 
@@ -87,7 +88,7 @@ public class PlayerScript : MonoBehaviour {
 
         } else if (collision.gameObject.CompareTag("enemy")) {
 
-            HandleEnemyCollision(collision);
+            // HandleEnemyCollision(collision);
         }
     }
 
@@ -120,11 +121,20 @@ public class PlayerScript : MonoBehaviour {
 
     private void HandleEnemyCollision(Collision2D enemyCollision) {
 
-        // ZombieScript zombieScript = enemyCollision.gameObject.GetComponent<ZombieScript>();
+        ZombieScript zombieScript = enemyCollision.gameObject.GetComponent<ZombieScript>();
         
-        // if (zombieScript != null) {
-        //     zombieScript.SpawnXPPoint();
-        //     zombieScript.DeleteZombie();
-        // }
+        if (zombieScript != null) {
+
+        }
+    }
+
+    public int TotalHP {
+
+        get { return totalHP; }
+    }
+
+    public void SubtractHP(int damage) {
+        totalHP -= damage;
+        Debug.Log("Player health decreased. Current HP: " + totalHP);
     }
 }
