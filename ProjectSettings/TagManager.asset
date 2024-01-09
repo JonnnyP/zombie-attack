@@ -9,6 +9,7 @@ TagManager:
   - movement-joystick
   - weapon-joystick
   - projectile
+  - xp-point
   layers:
   - Default
   - TransparentFX
