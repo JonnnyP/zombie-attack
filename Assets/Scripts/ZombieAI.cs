@@ -9,7 +9,12 @@ public class ZombieScript : MonoBehaviour {
     private Rigidbody2D rb;
     public GameObject expPoint;
 
+    private AudioManager audioManager;
+
+
     void Start() {
+
+        audioManager = FindObjectOfType<AudioManager>();
         rb = GetComponent<Rigidbody2D>();
         playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
     }
@@ -26,6 +31,7 @@ public class ZombieScript : MonoBehaviour {
 
     public void DeleteZombie() {
 
+        audioManager.PlayZombieDeathSound();
         Destroy(gameObject);
     }
 }

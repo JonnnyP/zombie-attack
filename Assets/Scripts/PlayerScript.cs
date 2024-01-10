@@ -4,64 +4,57 @@ using UnityEngine;
 
 public class PlayerScript : MonoBehaviour {
     
-    protected Joystick movementJoystick;
-    protected Joystick weaponJoystick;
-
-    // Projectile variables
+    public Joystick weaponJoystick;
     public ProjectileBehaviour ProjectilePrefab;
     public Transform LaunchOffset;
     public float projectileSpeed;
     public float shootCooldown; // Time between shots
     private float lastShootTime;
-    public float projectileLifeSpawn; // Limit the distance the projectile travels
-    public AudioClip shootSound;
 
-    private Rigidbody2D rigidbody2D;
-
-    public float movementSpeed;
+    private AudioManager audioManager;
 
     private int totalXP = 0;
     private int totalHP = 5;
 
     private void Start() {
 
-        rigidbody2D = GetComponent<Rigidbody2D>();
-
-        movementJoystick = GameObject.FindGameObjectWithTag("movement-joystick").GetComponent<Joystick>();
         weaponJoystick = GameObject.FindGameObjectWithTag("weapon-joystick").GetComponent<Joystick>();
-
-        rigidbody2D.gravityScale = 0f;
+        audioManager = FindObjectOfType<AudioManager>();
     }
 
     private void Update() {
-        // Handles movement 
-        float horizontalMovement = movementJoystick.Horizontal * movementSpeed;
-        float verticalMovement = movementJoystick.Vertical * movementSpeed;
-
-        Vector2 newPosition = rigidbody2D.position + new Vector2(horizontalMovement, verticalMovement) * Time.deltaTime;
-        rigidbody2D.MovePosition(newPosition);
     
-        // Handles weapon
-        float aimX = weaponJoystick.Horizontal;
-        float aimY = weaponJoystick.Vertical;
+        HandleWeaponInput();
+    }
 
-        // Calculate aim direction angle
-        Vector2 aimDirection = new Vector2(aimX, aimY);
-        
-        if (aimDirection.magnitude > 0.1f) {
+    void HandleWeaponInput() {
 
-            // Calculate the angle and adjust for the left-handed coordinate system
-            float aimAngle = Mathf.Atan2(aimDirection.y, aimDirection.x) * Mathf.Rad2Deg;
-            aimAngle -= 90f; // Adjust for sprite orientation
+        if(weaponJoystick != null) {
+            float aimX = weaponJoystick.Horizontal;
+            float aimY = weaponJoystick.Vertical;
 
-            // Apply the rotation
-            transform.rotation = Quaternion.Euler(new Vector3(0f, 0f, aimAngle));
+            // Calculate aim direction angle
+            Vector2 aimDirection = new Vector2(aimX, aimY);
+            
+            if (aimDirection.magnitude > 0.1f) {
 
-            if (Time.time - lastShootTime >= shootCooldown){
-                Shoot();
-                lastShootTime = Time.time;
+                // Calculate the angle and adjust for the left-handed coordinate system
+                float aimAngle = Mathf.Atan2(aimDirection.y, aimDirection.x) * Mathf.Rad2Deg;
+                aimAngle -= 90f;
+
+                // Apply the rotation
+                transform.rotation = Quaternion.Euler(new Vector3(0f, 0f, aimAngle));
+
+                if (Time.time - lastShootTime >= shootCooldown){
+                    Shoot();
+                    lastShootTime = Time.time;  
+                }
+
             }
+        } else {
+            Debug.LogError("Weapon joystick not found");
         }
+
     }
 
     private void Shoot() {
@@ -73,7 +66,7 @@ public class PlayerScript : MonoBehaviour {
         // Calculate the aim direction
         Vector2 aimDirection = new Vector2(weaponJoystick.Horizontal, weaponJoystick.Vertical).normalized;
 
-        AudioSource.PlayClipAtPoint(shootSound, transform.position);
+        audioManager.PlayProjectileSound();
 
         // Apply velocity to the projectile's rigidbody
         projectileRigidbody.velocity = aimDirection * projectileSpeed; // You need to set the value of projectileSpeed
@@ -102,6 +95,7 @@ public class PlayerScript : MonoBehaviour {
         if( expPointScript != null) {
 
             AddXP(expPointScript.XPValue);
+            audioManager.PlayXpPickUpSound();
             expPointScript.DeleteXpPoint();
         }
     }

@@ -3,14 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class ProjectileBehaviour : MonoBehaviour {
-    public float Speed = 4.5f;
+    public float Speed;
+    public float destroyDelay;
 
-    private void Update() {
-        
-        transform.position += transform.forward * Time.deltaTime * Speed;
+    private void Start() {
+        Invoke("DestroyObject", destroyDelay);
 
-        Invoke("DestroyObject", 0.5f);
-    }   
+    }
 
     private void OnCollisionEnter2D(Collision2D collision) {
 
@@ -20,6 +19,9 @@ public class ProjectileBehaviour : MonoBehaviour {
             zombieScript.SpawnXPPoint();
             zombieScript.DeleteZombie();
         }
+
+        CancelInvoke("DestroyObject");
+        Destroy(gameObject);
     }
 
     private void DestroyObject() {
