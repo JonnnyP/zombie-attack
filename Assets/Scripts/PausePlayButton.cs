@@ -12,16 +12,10 @@ public class PausePlayButton : MonoBehaviour {
     private bool isPaused = false;
 
     void Start() {
- if (button != null)
-        {
-            // Add listener for the button click
+        if (button != null) {
             button.onClick.AddListener(TogglePausePlay);
-            // Set the initial sprite
             UpdateButtonSprite();
-        }
-        else
-        {
-            // Log an error message if the button reference is null
+        } else {
             Debug.LogError("Button reference is null. Make sure the 'button' field is assigned in the inspector.");
         }
     }
@@ -36,12 +30,12 @@ public class PausePlayButton : MonoBehaviour {
 
     private void UpdateButtonSprite() {
 
-     if (button != null && button.image != null) {
-        button.image.sprite = isPaused ? playSprite : pauseSprite;
-    } else {
-        // Log an error message to help identify the issue
-        Debug.LogError("Button or button's image reference is null. Make sure the 'button' field is assigned in the inspector and the button has an Image component.");
-    }
+        if (button != null && button.image != null) {
+            button.image.sprite = isPaused ? playSprite : pauseSprite;
+        } else {
+            // Log an error message to help identify the issue
+            Debug.LogError("Button or button's image reference is null. Make sure the 'button' field is assigned in the inspector and the button has an Image component.");
+        }
 
     }
 
