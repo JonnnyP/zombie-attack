@@ -6,20 +6,24 @@ public class PlayerScript : MonoBehaviour {
     
     public Joystick weaponJoystick;
     public ProjectileBehaviour ProjectilePrefab;
-    public Transform LaunchOffset;
-    public float projectileSpeed;
-    public float shootCooldown; // Time between shots
-    private float lastShootTime;
-
     private AudioManager audioManager;
 
-    private int totalXP = 0;
-    private int totalHP = 5;
+    public Transform LaunchOffset;
+    public float projectileSpeed;
+    public float shootCooldown; 
+    private float lastShootTime;
+
+    private float totalXP = 0f;
+
+    private float maxHP = 50f;
+    private float currentHP = 50f;
+    public HealthBar healthBar;
 
     private void Start() {
 
         weaponJoystick = GameObject.FindGameObjectWithTag("weapon-joystick").GetComponent<Joystick>();
         audioManager = FindObjectOfType<AudioManager>();
+        currentHP = maxHP;
     }
 
     private void Update() {
@@ -82,10 +86,9 @@ public class PlayerScript : MonoBehaviour {
 
         } else if (collision.gameObject.CompareTag("enemy")) {
 
-            // HandleEnemyCollision(collision);
+            HandleEnemyCollision(collision);
         }
     }
-
 
     private void HandleXPPointCollision(Collision2D xpCollision) {
 
@@ -100,36 +103,51 @@ public class PlayerScript : MonoBehaviour {
         }
     }
 
-    public int TotalXP {
+    private void HandleEnemyCollision(Collision2D enemyCollision) {
+
+        ZombieAI zombieAI = enemyCollision.gameObject.GetComponent<ZombieAI>();
+        
+        if (zombieAI != null) {
+            
+            DamagePlayer(zombieAI.GetDamage);
+
+            // add a visual feature on screen to show the player is losing health
+
+        }
+    }
+
+    public float CurrentHP {
+
+        get { return currentHP; }
+    }
+
+    public float MaxHP {
+        get { return maxHP; }
+    }
+
+    public void HealPlayer(float healAmount) {
+        currentHP += healAmount;
+        Debug.Log("Player healed. Current HP: " + currentHP);
+    }
+
+    public void DamagePlayer(float damage) {
+        currentHP -= damage;
+        healthBar.SetHealth(currentHP);
+
+        Debug.Log("Player health decreased. Current HP: " + currentHP);
+    }
+    
+    public float TotalXP {
 
         get { return totalXP; }
     }
 
-    public void AddXP(int xpAmount) {
+    public void AddXP(float xpAmount) {
         
         totalXP += xpAmount;
 
         Debug.Log("Player XP increased. Current XP: " + totalXP);
      
-        // Update UI
-    }
-
-    private void HandleEnemyCollision(Collision2D enemyCollision) {
-
-        ZombieScript zombieScript = enemyCollision.gameObject.GetComponent<ZombieScript>();
-        
-        if (zombieScript != null) {
-
-        }
-    }
-
-    public int TotalHP {
-
-        get { return totalHP; }
-    }
-
-    public void SubtractHP(int damage) {
-        totalHP -= damage;
-        Debug.Log("Player health decreased. Current HP: " + totalHP);
+        // Add UI for player xp
     }
 }

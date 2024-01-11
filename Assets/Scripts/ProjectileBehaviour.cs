@@ -13,11 +13,11 @@ public class ProjectileBehaviour : MonoBehaviour {
 
     private void OnCollisionEnter2D(Collision2D collision) {
 
-        ZombieScript zombieScript = collision.gameObject.GetComponent<ZombieScript>();
+        ZombieAI zombieAI = collision.gameObject.GetComponent<ZombieAI>();
         
-        if (zombieScript != null) {
-            zombieScript.SpawnXPPoint();
-            zombieScript.DeleteZombie();
+        if (zombieAI != null) {
+            zombieAI.SpawnXPPoint();
+            zombieAI.DeleteZombie();
         }
 
         CancelInvoke("DestroyObject");

@@ -2,17 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ZombieScript : MonoBehaviour {
+public class ZombieAI : MonoBehaviour {
     
     public Transform playerTransform;
-    public float zombieMoveSpeed = 1.5f;
     private Rigidbody2D rb;
-    public GameObject expPoint;
 
+    public float zombieMoveSpeed;
+    public float zombieDamage;
+
+    public GameObject expPoint;
     private AudioManager audioManager;
 
 
-    void Start() {
+    void Start() {;
 
         audioManager = FindObjectOfType<AudioManager>();
         rb = GetComponent<Rigidbody2D>();
@@ -22,6 +24,10 @@ public class ZombieScript : MonoBehaviour {
     void Update() {
         Vector2 direction = (playerTransform.position - transform.position).normalized;
         rb.velocity = direction * zombieMoveSpeed;
+    }
+
+    public float GetDamage {
+        get{ return zombieDamage; }
     }
 
     public void SpawnXPPoint() {
