@@ -11,16 +11,18 @@ public class AudioManager : MonoBehaviour {
     public AudioClip zombieDeathSound;
     public AudioClip xpPickUpSound;
 
+    public float audioLevel = 0.2f;
+
     public void PlayProjectileSound() {
 
-        AudioSource.PlayClipAtPoint(projectileSound, Camera.main.transform.position, 0.5f);
+        AudioSource.PlayClipAtPoint(projectileSound, Camera.main.transform.position, audioLevel);
     } 
 
     public void PlayZombieDeathSound() {
-        AudioSource.PlayClipAtPoint(zombieDeathSound, Camera.main.transform.position, 0.35f);
+        AudioSource.PlayClipAtPoint(zombieDeathSound, Camera.main.transform.position, audioLevel);
     }
 
     public void PlayXpPickUpSound() {
-        AudioSource.PlayClipAtPoint(xpPickUpSound, Camera.main.transform.position, 0.45f);
+        AudioSource.PlayClipAtPoint(xpPickUpSound, Camera.main.transform.position, audioLevel);
     }
 }

@@ -1,3 +1,4 @@
+using System.Threading;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -78,16 +79,18 @@ public class PlayerScript : MonoBehaviour {
 
     private void OnCollisionEnter2D(Collision2D collision) {
 
-        Rigidbody2D otherRigidBody = collision.gameObject.GetComponent<Rigidbody2D>();
-
         if (collision.gameObject.CompareTag("xp-point")) {
         
             HandleXPPointCollision(collision);
+        }
+    }
 
-        } else if (collision.gameObject.CompareTag("enemy")) {
+    private void OnCollisionStay2D(Collision2D collision) {
+
+        if (collision.gameObject.CompareTag("enemy")) {
 
             HandleEnemyCollision(collision);
-        }
+        }    
     }
 
     private void HandleXPPointCollision(Collision2D xpCollision) {
@@ -110,9 +113,6 @@ public class PlayerScript : MonoBehaviour {
         if (zombieAI != null) {
             
             DamagePlayer(zombieAI.GetDamage);
-
-            // add a visual feature on screen to show the player is losing health
-
         }
     }
 
