@@ -4,21 +4,21 @@ using UnityEngine;
 
 public class ExpPointScript : MonoBehaviour {
     
-    public int xpValue = 10;
+    private AudioManager audioManager;
+    public int xpValue;
 
-    public int XPValue {
+    void Start() {
+        audioManager = FindObjectOfType<AudioManager>();
+    }
+
+    public int GetXPValue {
         get {return xpValue; }
     }
 
     public void DeleteXpPoint() {
 
+        audioManager.PlayXpPickUpSound();
         Destroy(gameObject);
     }
 
-    // private void OnCollisionEnter2D(Collision2D collision) {
-
-    //     if(collision.gameObject.tag == "Player") {
-    //         Destroy(gameObject);
-    //     }
-    // }
 }

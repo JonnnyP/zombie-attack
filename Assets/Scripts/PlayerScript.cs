@@ -14,11 +14,13 @@ public class PlayerScript : MonoBehaviour {
     public float shootCooldown; 
     private float lastShootTime;
 
-    private float totalXP = 0f;
-
+    public HealthBar healthBar;
     private float maxHP = 50f;
     private float currentHP = 50f;
-    public HealthBar healthBar;
+
+    private float currentXP = 0f;
+    private int currentPlayerLevel = 1;
+    private int nextLevelThreshold = 5;
 
     private void Start() {
 
@@ -100,8 +102,7 @@ public class PlayerScript : MonoBehaviour {
 
         if( expPointScript != null) {
 
-            AddXP(expPointScript.XPValue);
-            audioManager.PlayXpPickUpSound();
+            AddXP(expPointScript.GetXPValue);
             expPointScript.DeleteXpPoint();
         }
     }
@@ -127,28 +128,33 @@ public class PlayerScript : MonoBehaviour {
 
     public void HealPlayer(float healAmount) {
         currentHP += healAmount;
-        Debug.Log("Player healed. Current HP: " + currentHP);
     }
 
     public void DamagePlayer(float damage) {
         currentHP -= damage;
         healthBar.SetHealth(currentHP);
-
-        Debug.Log("Player health decreased. Current HP: " + currentHP);
     }
     
-    public float TotalXP {
+    public float GetCurrentXP {
 
-        get { return totalXP; }
+        get { return currentXP; }
     }
 
-    public void AddXP(float xpAmount) {
+    private void AddXP(float xpAmount) {
         
-        totalXP += xpAmount;
-
-        Debug.Log("Player XP increased. Current XP: " + totalXP);
-     
-        // Add UI for player xp
+        currentXP += xpAmount;
+        CheckLevelUp();
     }
 
+    public void CheckLevelUp() {
+        
+        if((currentXP % nextLevelThreshold) == 0) {
+            currentPlayerLevel += 1;
+
+            // Upgrade a single attribute 
+            // i.e. movement speed, boolet speed, boolet rate of fire
+
+            Debug.Log("Level Up! Curent level: " + currentPlayerLevel);
+        }    
+    }
 }
