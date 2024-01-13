@@ -116,7 +116,7 @@ public class PlayerScript : MonoBehaviour {
         }
     }
 
-    public float CurrentHP {
+    public float GetCurrentHP {
 
         get { return currentHP; }
     }
@@ -150,4 +150,5 @@ public class PlayerScript : MonoBehaviour {
      
         // Add UI for player xp
     }
+
 }

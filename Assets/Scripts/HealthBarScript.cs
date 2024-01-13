@@ -13,7 +13,7 @@ public class HealthBar : MonoBehaviour {
         healthBar = GetComponent<Slider>();
 
         healthBar.maxValue = player.MaxHP;
-        healthBar.value = player.CurrentHP;
+        healthBar.value = player.GetCurrentHP;
     }
     
     public void SetHealth(float hp) {
