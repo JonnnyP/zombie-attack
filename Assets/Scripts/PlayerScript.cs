@@ -18,6 +18,7 @@ public class PlayerScript : MonoBehaviour {
     private float maxHP = 50f;
     private float currentHP = 50f;
 
+    public XpBar xpBar;
     private float currentXP = 0f;
     private int currentPlayerLevel = 1;
     private int nextLevelThreshold = 5;
@@ -140,16 +141,24 @@ public class PlayerScript : MonoBehaviour {
         get { return currentXP; }
     }
 
+    public int GetMaxXP {
+        get { return nextLevelThreshold; }
+    }
+
     private void AddXP(float xpAmount) {
         
         currentXP += xpAmount;
+        xpBar.SetXP(currentXP);
         CheckLevelUp();
     }
 
     public void CheckLevelUp() {
         
-        if((currentXP % nextLevelThreshold) == 0) {
+        if(currentXP == nextLevelThreshold) {
             currentPlayerLevel += 1;
+
+            currentXP = 0;
+            xpBar.SetXP(currentXP);
 
             // Upgrade a single attribute 
             // i.e. movement speed, boolet speed, boolet rate of fire
