@@ -25,9 +25,12 @@ public class ZombieSpawnManager : MonoBehaviour {
     }
 
     public Vector3 GetRandomSpawnPoint() {
-        // Get random position on the scene bounds
-        float x = Random.Range(Camera.main.aspect * Camera.main.orthographicSize, -Camera.main.aspect * Camera.main.orthographicSize);
-        float y = Random.Range(Camera.main.orthographicSize, -Camera.main.orthographicSize);
+        float padding = 1f; // Adjust this value based on how far off the camera bounds you want to spawn
+
+        // Get random position just outside the scene bounds
+        float x = Random.Range(-Camera.main.aspect * Camera.main.orthographicSize - padding, Camera.main.aspect * Camera.main.orthographicSize + padding);
+        float y = Random.Range(-Camera.main.orthographicSize - padding, Camera.main.orthographicSize + padding);
+
         return new Vector3(x, y, 0f);
     }
 }

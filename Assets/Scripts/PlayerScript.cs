@@ -2,6 +2,7 @@ using System.Threading;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class PlayerScript : MonoBehaviour {
     
@@ -22,6 +23,13 @@ public class PlayerScript : MonoBehaviour {
     private float currentXP = 0f;
     private int currentPlayerLevel = 1;
     private int nextLevelThreshold = 5;
+
+    // event declaration 
+    // public event {Action} {EventName}
+
+    public delegate void PlayerLevelUp();
+
+    public event PlayerLevelUp LevelUp;
 
     private void Start() {
 
@@ -149,21 +157,18 @@ public class PlayerScript : MonoBehaviour {
         
         currentXP += xpAmount;
         xpBar.SetXP(currentXP);
-        CheckLevelUp();
-    }
-
-    public void CheckLevelUp() {
         
         if(currentXP == nextLevelThreshold) {
-            currentPlayerLevel += 1;
-
-            currentXP = 0;
-            xpBar.SetXP(currentXP);
-
-            // Upgrade a single attribute 
-            // i.e. movement speed, boolet speed, boolet rate of fire
-
-            Debug.Log("Level Up! Curent level: " + currentPlayerLevel);
+            TriggerLevelUp();
         }    
+    }
+
+    private void TriggerLevelUp() {
+
+        LevelUp?.Invoke();
+        currentPlayerLevel += 1;
+        currentXP = 0;
+        xpBar.SetXP(currentXP);
+    
     }
 }

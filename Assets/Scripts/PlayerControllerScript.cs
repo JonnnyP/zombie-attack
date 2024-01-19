@@ -6,8 +6,7 @@ public class PlayerControllerScript : MonoBehaviour {
     
     public float movementSpeed;
     public Joystick movementJoystick;
-    private Rigidbody2D rigidbody2D;
-
+    new private Rigidbody2D rigidbody2D;
 
     void Start() {
         
@@ -15,7 +14,7 @@ public class PlayerControllerScript : MonoBehaviour {
         GetComponent<Rigidbody2D>().gravityScale = 0f;
 
         movementJoystick = GameObject.FindGameObjectWithTag("movement-joystick").GetComponent<Joystick>();
-    }
+    } 
 
     void Update() {
         HandleMovementInput();

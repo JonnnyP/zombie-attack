@@ -526,7 +526,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5fb90d361c0941e3ba1d060671e56d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
+  upgradeManager: {fileID: 0}
+  upgradeUIManager: {fileID: 0}
+  playerScript: {fileID: 0}
 --- !u!1 &1564665786
 GameObject:
   m_ObjectHideFlags: 0
