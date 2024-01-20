@@ -5,7 +5,7 @@ using UnityEngine;
 public class UpgradeManager : MonoBehaviour {
     
     public static UpgradeManager Instance;
-    
+
     public UpgradeUIManager upgradeUIManager;
     public PlayerScript playerScript;
 
@@ -20,6 +20,7 @@ public class UpgradeManager : MonoBehaviour {
         }
 
         playerScript = GameObject.FindGameObjectWithTag("Player")?.GetComponent<PlayerScript>();
+        upgradeUIManager.onUpgradeSelected.AddListener(ResumeGameplay);
     }
 
     void OnEnable() {
@@ -33,7 +34,12 @@ public class UpgradeManager : MonoBehaviour {
 
     public void ShowUpgradeChoices() {
         if (upgradeUIManager != null) {
+            Time.timeScale = 0f;
             upgradeUIManager.ShowUpgradeChoices();
         }
+    }
+
+    void ResumeGameplay() {
+        upgradeUIManager.HideUpgradeChoice();
     }
 }

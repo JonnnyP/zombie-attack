@@ -26,7 +26,6 @@ public class GameManager : MonoBehaviour {
 
         if( scene.name == "MainScene") {
             playerScript = GameObject.FindGameObjectWithTag("Player")?.GetComponent<PlayerScript>();
-
         }
     }
 

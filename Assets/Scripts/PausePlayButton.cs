@@ -22,7 +22,6 @@ public class PausePlayButton : MonoBehaviour {
 
     private void TogglePausePlay() {
         isPaused = !isPaused;
-
         UpdateButtonSprite();
 
         Time.timeScale = isPaused ? 0f : 1f;

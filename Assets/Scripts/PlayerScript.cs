@@ -9,6 +9,7 @@ public class PlayerScript : MonoBehaviour {
     public Joystick weaponJoystick;
     public ProjectileBehaviour ProjectilePrefab;
     private AudioManager audioManager;
+    public UpgradeUIManager upgradeUIManager;
 
     public Transform LaunchOffset;
     public float projectileSpeed;
@@ -36,6 +37,8 @@ public class PlayerScript : MonoBehaviour {
         weaponJoystick = GameObject.FindGameObjectWithTag("weapon-joystick").GetComponent<Joystick>();
         audioManager = FindObjectOfType<AudioManager>();
         currentHP = maxHP;
+
+        upgradeUIManager.onUpgradeSelected.AddListener(HandleUpgradeSelection);
     }
 
     private void Update() {
@@ -170,5 +173,9 @@ public class PlayerScript : MonoBehaviour {
         currentXP = 0;
         xpBar.SetXP(currentXP);
     
+    }
+
+    void HandleUpgradeSelection() {
+        Debug.Log("Handling upgrade selection in PlayerScript");
     }
 }
