@@ -4,6 +4,9 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Events;
 
+[System.Serializable]
+public class UnityEventInt : UnityEvent<int> { }
+
 public class UpgradeUIManager : MonoBehaviour {
     
     public GameObject player;
@@ -17,8 +20,7 @@ public class UpgradeUIManager : MonoBehaviour {
     public Text upgradeChoice2;
     public Text upgradeChoice3;
 
-    public UnityEvent onUpgradeSelected = new UnityEvent();
-
+    public UnityEventInt onUpgradeSelected;
 
     void Start() {
         upgradePanel.SetActive(false);
@@ -36,12 +38,11 @@ public class UpgradeUIManager : MonoBehaviour {
     public void HideUpgradeChoice() {
 
         upgradePanel.SetActive(false);
-        Time.timeScale = 1f;
     }
 
     public void UpgradeSelected(int upgradeChoice) {
 
-        onUpgradeSelected.Invoke();
+        onUpgradeSelected.Invoke(upgradeChoice);
     }
 
 

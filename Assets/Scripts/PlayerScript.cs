@@ -25,12 +25,10 @@ public class PlayerScript : MonoBehaviour {
     private int currentPlayerLevel = 1;
     private int nextLevelThreshold = 5;
 
-    // event declaration 
-    // public event {Action} {EventName}
-
     public delegate void PlayerLevelUp();
 
     public event PlayerLevelUp LevelUp;
+    public UnityEvent onUpgradeSelected;
 
     private void Start() {
 
@@ -175,7 +173,25 @@ public class PlayerScript : MonoBehaviour {
     
     }
 
-    void HandleUpgradeSelection() {
-        Debug.Log("Handling upgrade selection in PlayerScript");
+    // Level Up being triggered multiple times
+    void HandleUpgradeSelection(int upgradeChoice) {
+
+        switch(upgradeChoice) {
+            case 1:
+                if(shootCooldown >= 0) {
+                    shootCooldown -= 0.1f;
+                    shootCooldown = Mathf.Ceil(shootCooldown * 100) / 100;    
+                }
+                Debug.Log("Attack Speed Upgrade! Current attack speeed: " + shootCooldown);
+                break;
+            case 3:
+                projectileSpeed += 0.2f;
+                Debug.Log("Projectile Speed Upgrade");
+                break;
+        }
+    }
+
+    private void UpgradeAttackSpeed() {
+
     }
 }

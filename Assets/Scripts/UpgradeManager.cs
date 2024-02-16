@@ -5,9 +5,9 @@ using UnityEngine;
 public class UpgradeManager : MonoBehaviour {
     
     public static UpgradeManager Instance;
-
+    
     public UpgradeUIManager upgradeUIManager;
-    public PlayerScript playerScript;
+    private PlayerScript playerScript;
 
     private void Awake() {
   
@@ -19,7 +19,15 @@ public class UpgradeManager : MonoBehaviour {
             return;
         }
 
-        playerScript = GameObject.FindGameObjectWithTag("Player")?.GetComponent<PlayerScript>();
+        // upgradeUIManager = FindObjectOfType<UpgradeUIManager>();
+        playerScript = FindObjectOfType<PlayerScript>();
+
+        if (playerScript == null) {
+            Debug.LogError("PlayerScript not found!");
+        }
+        // playerScript = GameObject.FindGameObjectWithTag("Player")?.GetComponent<PlayerScript>();
+        
+        // upgradeUIManager = GameObject.FindGameObjectWithTag("upgrade-ui-manager")?.GetComponent<UpgradeUIManager>();
         upgradeUIManager.onUpgradeSelected.AddListener(ResumeGameplay);
     }
 
@@ -39,7 +47,8 @@ public class UpgradeManager : MonoBehaviour {
         }
     }
 
-    void ResumeGameplay() {
+    void ResumeGameplay(int upgradeChoice) {
         upgradeUIManager.HideUpgradeChoice();
+        Time.timeScale = 1f;
     }
 }

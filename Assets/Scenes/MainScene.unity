@@ -317,7 +317,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   upgradeUIManager: {fileID: 865266736}
-  playerScript: {fileID: 0}
 --- !u!4 &260988060
 Transform:
   m_ObjectHideFlags: 0
@@ -994,7 +993,7 @@ GameObject:
   - component: {fileID: 865266736}
   m_Layer: 5
   m_Name: Upgrade Container
-  m_TagString: Untagged
+  m_TagString: upgrade-ui-manager
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1021,19 +1020,7 @@ MonoBehaviour:
   upgradeChoice3: {fileID: 1040267334}
   onUpgradeSelected:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 11500000, guid: 02d3198b56005480b81a01b62719c98d, type: 3}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!224 &865266737
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2717,10 +2704,13 @@ MonoBehaviour:
   ProjectilePrefab: {fileID: 6108987106409806635, guid: 43972ee8aa71e474bb1acb54154f118c, type: 3}
   upgradeUIManager: {fileID: 865266736}
   LaunchOffset: {fileID: 10758462}
-  projectileSpeed: 3
-  shootCooldown: 1
+  projectileSpeed: 2
+  shootCooldown: 1.5
   healthBar: {fileID: 1179193418}
   xpBar: {fileID: 1661452420}
+  onUpgradeSelected:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &2077594247
 MonoBehaviour:
   m_ObjectHideFlags: 0

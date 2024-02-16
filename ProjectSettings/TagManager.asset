@@ -10,6 +10,7 @@ TagManager:
   - projectile
   - xp-point
   - enemy
+  - upgrade-ui-manager
   layers:
   - Default
   - TransparentFX
