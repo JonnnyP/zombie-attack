@@ -37,9 +37,16 @@ public class PlayerScript : MonoBehaviour {
 
         weaponJoystick = GameObject.FindGameObjectWithTag("weapon-joystick").GetComponent<Joystick>();
         audioManager = FindObjectOfType<AudioManager>();
-        currentHP = maxHP;
-
+        
+        ResetPlayerValues();
         upgradeUIManager.onUpgradeSelected.AddListener(HandleUpgradeSelection);
+    }
+
+    private void ResetPlayerValues() {
+        currentHP = maxHP;
+        currentXP = 0f;
+        currentPlayerLevel = 1;
+        nextLevelThreshold = 5;
     }
 
     private void Update() {
@@ -184,7 +191,7 @@ public class PlayerScript : MonoBehaviour {
                 UpgradeAttackSpeed();
                 break;
             case 2:
-                projectileSpeed += 0.15f;
+                UpgradeProjectileSpeed();
                 break;
             case 3:
                 playerControllerScript.IncreaseMovementSpeed();
@@ -194,8 +201,12 @@ public class PlayerScript : MonoBehaviour {
 
     private void UpgradeAttackSpeed() {
         if(shootCooldown >= 0) {
-            shootCooldown -= 0.1f;
+            shootCooldown -= 0.14f;
             shootCooldown = Mathf.Ceil(shootCooldown * 100) / 100;    
         }
+    }
+
+    private void UpgradeProjectileSpeed() {
+        projectileSpeed += 0.2f;
     }
 }

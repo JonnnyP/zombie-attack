@@ -2783,7 +2783,7 @@ MonoBehaviour:
   ProjectilePrefab: {fileID: 6108987106409806635, guid: 43972ee8aa71e474bb1acb54154f118c, type: 3}
   upgradeUIManager: {fileID: 865266736}
   LaunchOffset: {fileID: 10758462}
-  projectileSpeed: 1.4
+  projectileSpeed: 1
   shootCooldown: 1.6
   healthBar: {fileID: 1179193418}
   xpBar: {fileID: 1661452420}
@@ -2803,7 +2803,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb9123c16ee9341ad903aaee14329160, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementSpeed: 3
+  movementSpeed: 2
   movementJoystick: {fileID: 1611631094}
 --- !u!1 &2129258989
 GameObject:
