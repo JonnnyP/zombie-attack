@@ -2,10 +2,12 @@ using System.Threading;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.Events;
 
 public class PlayerScript : MonoBehaviour {
     
+    public PlayerControllerScript playerControllerScript;
     public Joystick weaponJoystick;
     public ProjectileBehaviour ProjectilePrefab;
     private AudioManager audioManager;
@@ -21,6 +23,7 @@ public class PlayerScript : MonoBehaviour {
     private float currentHP = 50f;
 
     public XpBar xpBar;
+    public Text playerLevelText;
     private float currentXP = 0f;
     private int currentPlayerLevel = 1;
     private int nextLevelThreshold = 5;
@@ -155,43 +158,44 @@ public class PlayerScript : MonoBehaviour {
     }
 
     private void AddXP(float xpAmount) {
-        
         currentXP += xpAmount;
         xpBar.SetXP(currentXP);
         
-        if(currentXP == nextLevelThreshold) {
+        if(currentXP >= nextLevelThreshold) {
             TriggerLevelUp();
         }    
     }
 
     private void TriggerLevelUp() {
-
         LevelUp?.Invoke();
+        
         currentPlayerLevel += 1;
         currentXP = 0;
+        nextLevelThreshold += 2;
+
         xpBar.SetXP(currentXP);
-    
+        xpBar.SetMaxXp(nextLevelThreshold);
+        playerLevelText.text = "Level " + currentPlayerLevel;
     }
 
-    // Level Up being triggered multiple times
     void HandleUpgradeSelection(int upgradeChoice) {
-
         switch(upgradeChoice) {
             case 1:
-                if(shootCooldown >= 0) {
-                    shootCooldown -= 0.1f;
-                    shootCooldown = Mathf.Ceil(shootCooldown * 100) / 100;    
-                }
-                Debug.Log("Attack Speed Upgrade! Current attack speeed: " + shootCooldown);
+                UpgradeAttackSpeed();
+                break;
+            case 2:
+                projectileSpeed += 0.15f;
                 break;
             case 3:
-                projectileSpeed += 0.2f;
-                Debug.Log("Projectile Speed Upgrade");
+                playerControllerScript.IncreaseMovementSpeed();
                 break;
         }
     }
 
     private void UpgradeAttackSpeed() {
-
+        if(shootCooldown >= 0) {
+            shootCooldown -= 0.1f;
+            shootCooldown = Mathf.Ceil(shootCooldown * 100) / 100;    
+        }
     }
 }

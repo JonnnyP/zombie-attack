@@ -19,4 +19,8 @@ public class XpBar : MonoBehaviour {
     public void SetXP(float xp) {
         xpBar.value = xp;
     }
+
+    public void SetMaxXp(float xp) {
+        xpBar.maxValue = xp;
+    }
 }

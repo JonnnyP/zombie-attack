@@ -30,7 +30,10 @@ public class UpgradeUIManager : MonoBehaviour {
         GenerateUpgradeChoices();
         upgradePanel.SetActive(true);
 
-        upgradeButton1.onClick.AddListener(() => UpgradeSelected(1));
+        upgradeButton1.onClick.RemoveAllListeners();
+        upgradeButton2.onClick.RemoveAllListeners();
+        upgradeButton3.onClick.RemoveAllListeners();
+        upgradeButton1.onClick.AddListener(() => UpgradeSelected(1));        
         upgradeButton2.onClick.AddListener(() => UpgradeSelected(2));
         upgradeButton3.onClick.AddListener(() => UpgradeSelected(3));
     }
@@ -43,8 +46,8 @@ public class UpgradeUIManager : MonoBehaviour {
     public void UpgradeSelected(int upgradeChoice) {
 
         onUpgradeSelected.Invoke(upgradeChoice);
+        HideUpgradeChoice();
     }
-
 
     private void GenerateUpgradeChoices() {
 

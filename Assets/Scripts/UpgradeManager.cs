@@ -19,15 +19,12 @@ public class UpgradeManager : MonoBehaviour {
             return;
         }
 
-        // upgradeUIManager = FindObjectOfType<UpgradeUIManager>();
         playerScript = FindObjectOfType<PlayerScript>();
 
         if (playerScript == null) {
             Debug.LogError("PlayerScript not found!");
         }
-        // playerScript = GameObject.FindGameObjectWithTag("Player")?.GetComponent<PlayerScript>();
-        
-        // upgradeUIManager = GameObject.FindGameObjectWithTag("upgrade-ui-manager")?.GetComponent<UpgradeUIManager>();
+
         upgradeUIManager.onUpgradeSelected.AddListener(ResumeGameplay);
     }
 

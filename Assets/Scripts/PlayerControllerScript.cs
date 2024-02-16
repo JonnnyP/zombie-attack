@@ -35,4 +35,11 @@ public class PlayerControllerScript : MonoBehaviour {
         } 
     }
 
+    public void IncreaseMovementSpeed() {
+        movementSpeed += 0.5f;
+    }
+
+    public void DecreaseMovementSpeed() {
+        movementSpeed -= 0.5f;
+    }
 }
