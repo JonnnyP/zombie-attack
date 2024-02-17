@@ -201,7 +201,7 @@ public class PlayerScript : MonoBehaviour {
 
     private void UpgradeAttackSpeed() {
         if(shootCooldown >= 0) {
-            shootCooldown -= 0.14f;
+            shootCooldown -= 0.25f;
             shootCooldown = Mathf.Ceil(shootCooldown * 100) / 100;    
         }
     }
