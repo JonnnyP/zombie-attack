@@ -10,14 +10,6 @@ public class UpgradeManager : MonoBehaviour {
     private PlayerScript playerScript;
 
     private void Awake() {
-  
-        // if(Instance == null) {
-        //     Instance = this;
-        //     DontDestroyOnLoad(gameObject);
-        // } else {
-        //     Destroy(gameObject);
-        //     return;
-        // }
 
         playerScript = FindObjectOfType<PlayerScript>();
 

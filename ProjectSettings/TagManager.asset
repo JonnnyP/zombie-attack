@@ -12,6 +12,7 @@ TagManager:
   - enemy
   - upgrade-ui-manager
   - Background Image
+  - Time-Display
   layers:
   - Default
   - TransparentFX
