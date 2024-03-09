@@ -59,6 +59,24 @@ TagManager:
   - name: Foreground
     uniqueID: 4265590393
     locked: 0
+  - name: Ground
+    uniqueID: 772519555
+    locked: 0
+  - name: Environment
+    uniqueID: 2167689037
+    locked: 0
+  - name: Lava
+    uniqueID: 1615233485
+    locked: 0
+  - name: Walls
+    uniqueID: 2424943463
+    locked: 0
   - name: Enemies
     uniqueID: 550862829
+    locked: 0
+  - name: Bullets
+    uniqueID: 1573603731
+    locked: 0
+  - name: Player
+    uniqueID: 1767182581
     locked: 0
