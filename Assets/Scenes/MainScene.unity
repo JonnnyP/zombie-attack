@@ -931,7 +931,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5.5637355
+  orthographic size: 5.076923
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -1323,10 +1323,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdf47988da29748be81581bf90793eed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectileSound: {fileID: 8300000, guid: 3349810c84d3f49e58d12a350680e38e, type: 3}
-  zombieDeathSound: {fileID: 8300000, guid: ed4f60f49d89b46138bf989da910e044, type: 3}
-  xpPickUpSound: {fileID: 8300000, guid: 74b78c36b03aa4f809cdc9dcaecc1a81, type: 3}
-  audioLevel: 0.1
+  projectileSound: {fileID: 8300000, guid: c3b449e59f8777042a76ab9483afc026, type: 3}
+  zombieDeathSound: {fileID: 8300000, guid: d0f09b0b689617843b1d14a3e25f8d03, type: 3}
+  xpPickUpSound: {fileID: 8300000, guid: 60db5db9e8f9f4e448eaa39d6fdfe22a, type: 3}
+  audioLevel: 0.2
 --- !u!4 &914462476
 Transform:
   m_ObjectHideFlags: 0
