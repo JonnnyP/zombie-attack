@@ -23,7 +23,7 @@ public class PlayerControllerScript : MonoBehaviour {
     void Update() {
         HandleMovementInput();
 
-        WrapAroundGrid();
+        // WrapAroundGrid();
     }
 
     void HandleMovementInput() {

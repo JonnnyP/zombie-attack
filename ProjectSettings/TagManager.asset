@@ -13,6 +13,7 @@ TagManager:
   - upgrade-ui-manager
   - Background Image
   - Time-Display
+  - Enemy
   layers:
   - Default
   - TransparentFX
@@ -34,11 +35,11 @@ TagManager:
   - 
   - 
   - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - PLAYER
+  - BULLETS
+  - LAVA
+  - WALLS
+  - ENVIRONMENT
   - 
   - 
   - 

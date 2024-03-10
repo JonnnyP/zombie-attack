@@ -9,7 +9,7 @@ public class ZombieSpawnManager : MonoBehaviour {
     public float spawnRate;
 
     void Start() {
-        StartSpawning();
+        // StartSpawning();
     }
 
     private void StartSpawning() {
