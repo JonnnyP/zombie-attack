@@ -15,10 +15,10 @@ public class ProjectileBehaviour : MonoBehaviour {
 
         ZombieAI zombieAI = collision.gameObject.GetComponent<ZombieAI>();
         
-        if (zombieAI != null) {
-            zombieAI.SpawnXPPoint();
-            zombieAI.DeleteZombie();
-        }
+        // if (zombieAI != null) {
+        //     zombieAI.SpawnXPPoint();
+        //     zombieAI.DeleteZombie();
+        // }
 
         CancelInvoke("DestroyObject");
         Destroy(gameObject);

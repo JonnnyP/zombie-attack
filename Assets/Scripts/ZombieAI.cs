@@ -7,12 +7,14 @@ public class ZombieAI : MonoBehaviour {
     public Transform playerTransform;
     private Rigidbody2D rb;
 
+    public int hitPoints;
     public float zombieMoveSpeed;
     public float zombieDamage;
 
     public GameObject expPoint;
     private AudioManager audioManager;
 
+    // For pivot point to point at player
     public GameObject visualObject;
 
     void Start() {;
@@ -34,6 +36,16 @@ public class ZombieAI : MonoBehaviour {
         rb.rotation = angle;
     }
 
+    private void OnCollisionEnter2D(Collision2D collision) {
+        if(collision.gameObject.tag == "projectile") {
+            hitPoints--;
+
+            if(hitPoints <= 0) {
+                Destroy(gameObject);
+                SpawnXPPoint();
+            }
+        }
+    }
 
     public float GetDamage {
         get{ return zombieDamage; }
