@@ -207,6 +207,6 @@ public class PlayerScript : MonoBehaviour {
     }
 
     private void UpgradeProjectileSpeed() {
-        projectileSpeed += 0.2f;
+        projectileSpeed += 0.75f;
     }
 }

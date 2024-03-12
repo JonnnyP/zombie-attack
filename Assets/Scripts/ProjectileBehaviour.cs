@@ -8,17 +8,11 @@ public class ProjectileBehaviour : MonoBehaviour {
 
     private void Start() {
         Invoke("DestroyObject", destroyDelay);
-
     }
 
     private void OnCollisionEnter2D(Collision2D collision) {
 
         ZombieAI zombieAI = collision.gameObject.GetComponent<ZombieAI>();
-        
-        // if (zombieAI != null) {
-        //     zombieAI.SpawnXPPoint();
-        //     zombieAI.DeleteZombie();
-        // }
 
         CancelInvoke("DestroyObject");
         Destroy(gameObject);

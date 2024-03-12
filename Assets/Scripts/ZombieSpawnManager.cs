@@ -13,7 +13,7 @@ public class ZombieSpawnManager : MonoBehaviour {
     }
 
     private void StartSpawning() {
-        InvokeRepeating("SpawnZombie", 0.5f, spawnRate);
+        InvokeRepeating("SpawnZombie", spawnRate, spawnRate);
     }
     
     private void SpawnZombie() {

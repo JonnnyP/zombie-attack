@@ -29,7 +29,7 @@ public class GameManager : MonoBehaviour {
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode) {
 
-        if( scene.name == "MainScene") {
+        if( scene.name == "GamePlayScene") {
             playerScript = GameObject.FindGameObjectWithTag("Player")?.GetComponent<PlayerScript>();
             timeText = GameObject.FindGameObjectWithTag("Time-Display")?.GetComponent<Text>();
             startTime = Time.time;
