@@ -607,7 +607,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb9123c16ee9341ad903aaee14329160, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementSpeed: 2.5
+  movementSpeed: 2
   movementJoystick: {fileID: 288166470}
   playfieldSize: 20
 --- !u!114 &151084664
@@ -6712,7 +6712,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zombie: {fileID: 4439455380970377076, guid: 2de8f1c142136453a80dbc90fc6e645f, type: 3}
   spawnpoint: {fileID: 669297197}
-  spawnRate: 3
+  spawnRate: 1.5
 --- !u!4 &669297197
 Transform:
   m_ObjectHideFlags: 0
