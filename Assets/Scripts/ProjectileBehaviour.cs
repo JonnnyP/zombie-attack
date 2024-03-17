@@ -12,7 +12,12 @@ public class ProjectileBehaviour : MonoBehaviour {
 
     private void OnCollisionEnter2D(Collision2D collision) {
 
-        ZombieAI zombieAI = collision.gameObject.GetComponent<ZombieAI>();
+        // ZombieAI zombieAI = collision.gameObject.GetComponent<ZombieAI>();
+
+        // if(collision.gameObject.CompareTag("enemy")) {
+        //     CancelInvoke("DestroyObject");
+        //     Destroy(gameObject);            
+        // }
 
         CancelInvoke("DestroyObject");
         Destroy(gameObject);
