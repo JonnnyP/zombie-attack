@@ -93,7 +93,7 @@ public class PlayerScript : MonoBehaviour {
         // Calculate the aim direction
         Vector2 aimDirection = new Vector2(weaponJoystick.Horizontal, weaponJoystick.Vertical).normalized;
 
-        audioManager.PlayProjectileSound();
+        // audioManager.PlayProjectileSound();
 
         // Apply velocity to the projectile's rigidbody
         projectileRigidbody.velocity = aimDirection * projectileSpeed; // You need to set the value of projectileSpeed

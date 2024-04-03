@@ -22,28 +22,18 @@ public class ZombieSpawnManager : MonoBehaviour {
         Instantiate(zombie, spawnPoint, Quaternion.identity);
     }
 
-    public Vector3 GetRandomSpawnPoint() {
-        float padding = 1f; // Adjust this value based on how far off the camera bounds you want to spawn
+    public Vector2 GetRandomSpawnPoint() {
+        // Get camera's position and size
+        Vector2 cameraPosition = Camera.main.transform.position;
+        float cameraHalfWidth = Camera.main.aspect * Camera.main.orthographicSize;
+        float cameraHalfHeight = Camera.main.orthographicSize;
 
-        // Get random position just outside the scene bounds
-        float x = Random.Range(-Camera.main.aspect * Camera.main.orthographicSize - padding, Camera.main.aspect * Camera.main.orthographicSize + padding);
-        float y = Random.Range(-Camera.main.orthographicSize - padding, Camera.main.orthographicSize + padding);
+        float padding = 10f; // Adjust this value based on how far off the camera bounds you want to spawn
+
+        // Calculate random position just outside the camera bounds
+        float x = Random.Range(cameraPosition.x - cameraHalfWidth - padding, cameraPosition.x + cameraHalfWidth + padding);
+        float y = Random.Range(cameraPosition.y - cameraHalfHeight - padding, cameraPosition.y + cameraHalfHeight + padding);
 
         return new Vector3(x, y, 0f);
     }
-
-    // public Vector3 GetRandomSpawnPoint() {
-
-    //     float padding = 1f; // Adjust this value based on how far off the camera bounds you want to spawn
-    //     float cameraX = ViewportHandler.Instance.camera.transform.position.x;
-    //     float cameraY = ViewportHandler.Instance.camera.transform.position.y;
-    //     float cameraOrthoSize = ViewportHandler.Instance.camera.orthographicSize;
-    //     float cameraAspect = ViewportHandler.Instance.camera.aspect;
-
-    //     // Get random position just outside the scene bounds
-    //     float x = Random.Range(cameraX - cameraAspect * cameraOrthoSize - padding, cameraX + cameraAspect * cameraOrthoSize + padding);
-    //     float y = Random.Range(cameraY - cameraOrthoSize - padding, cameraY + cameraOrthoSize + padding);
-
-    //     return new Vector3(x, y, 0f);
-    // }
 }
