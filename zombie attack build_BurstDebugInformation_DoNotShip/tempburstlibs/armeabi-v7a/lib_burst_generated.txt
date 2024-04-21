@@ -21,6 +21,10 @@ Library: /Users/jonathanplata/Documents/zombie-attack/Temp/BurstOutput/tempburst
 --assembly-defines=Unity.InternalAPIEngineBridge.001;
 --assembly-defines=Unity.Mathematics;
 --assembly-defines=Unity.TextMeshPro;
+--assembly-defines=Unity.VisualScripting.Antlr3.Runtime;
+--assembly-defines=Unity.VisualScripting.Core;
+--assembly-defines=Unity.VisualScripting.Flow;
+--assembly-defines=Unity.VisualScripting.State;
 --assembly-defines=UnityEngine;
 --generate-link-xml=Temp/burst.link.xml
 --temp-folder=/Users/jonathanplata/Documents/zombie-attack/Temp/Burst

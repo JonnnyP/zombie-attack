@@ -36,11 +36,18 @@ public class ZombieAI : MonoBehaviour {
         rb.rotation = angle;
     }
 
+    public void Initialize(int hp, float moveSpeed, float damage) {
+        this.hitPoints = hp;
+        this.zombieMoveSpeed = moveSpeed;
+        this.zombieDamage = damage;
+    }
+
     private void OnCollisionEnter2D(Collision2D collision) {
         if(collision.gameObject.tag == "projectile") {
             hitPoints--;
 
             if(hitPoints <= 0) {
+                audioManager.PlayZombieDeathSound();
                 Destroy(gameObject);
                 SpawnXPPoint();
             }
@@ -58,7 +65,7 @@ public class ZombieAI : MonoBehaviour {
 
     public void DeleteZombie() {
 
-        audioManager.PlayZombieDeathSound();
+        // audioManager.PlayZombieDeathSound();
         Destroy(gameObject);
     }
 }

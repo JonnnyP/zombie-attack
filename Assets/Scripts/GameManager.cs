@@ -6,17 +6,22 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour {
     
-    private static GameManager instance;
+    // private static GameManager instance;
     public PlayerScript playerScript;
     public Text timeText;
 
     private float startTime;
+    public static GameManager Instance { get; private set; }
+
     public float TimeAlive { get; private set; }
+
+    public delegate void TimerEvent(float time);
+    public static event TimerEvent MinuteSurvived;
 
     private void Awake() {
 
-        if (instance == null) {
-            instance = this;
+        if (Instance == null) {
+            Instance = this;
             DontDestroyOnLoad(gameObject);
         } else {
             Destroy(gameObject);
@@ -41,15 +46,21 @@ public class GameManager : MonoBehaviour {
         if(playerScript != null) {
 
             if(playerScript.GetCurrentHP >= 0) {
-                
+            
                 TimeAlive = Time.time - startTime;
                 UpdateTimeDisplay(TimeAlive);
+
+                if(TimeAlive % 60 == 0) {
+                    TriggerTimeEvent(TimeAlive);
+                }
 
             } else if (playerScript.GetCurrentHP <= 0) {
 
                 GameOver();
             }
         }
+
+        
     }
 
     void GameOver() {
@@ -59,4 +70,9 @@ public class GameManager : MonoBehaviour {
     private void UpdateTimeDisplay(float newTime) {
         timeText.text = "" + newTime.ToString("F2") + ""; 
     }
+
+    public static void TriggerTimeEvent(float time) {
+        MinuteSurvived?.Invoke(time);
+        Debug.Log("Time event, survived 1 minute");
+    }    
 }

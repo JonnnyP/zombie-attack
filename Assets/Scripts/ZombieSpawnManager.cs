@@ -5,8 +5,25 @@ using UnityEngine;
 public class ZombieSpawnManager : MonoBehaviour {
 
     public GameObject zombie;
+    public GameObject zombieBrute;
     public Transform spawnpoint;
     public float spawnRate;
+
+    public int zombieHitPoints = 1;
+    public float zombieMoveSpeed = 1.5f;
+    public float zombieDamage = 0.1f;
+
+    private void OnEnable() {
+        GameManager.MinuteSurvived += HandleTimeEvent;
+    }
+
+    private void OnDisable() {
+        GameManager.MinuteSurvived -= HandleTimeEvent;
+    }
+
+    private void HandleTimeEvent(float time) {
+
+    }
 
     void Start() {
         StartSpawning();
@@ -19,7 +36,14 @@ public class ZombieSpawnManager : MonoBehaviour {
     private void SpawnZombie() {
         Vector3 spawnPoint = GetRandomSpawnPoint();
 
-        Instantiate(zombie, spawnPoint, Quaternion.identity);
+
+        GameObject prefabToSpawn = Random.value > 0.9 ? zombieBrute : zombie; // 10% chance to spawn a brute
+        GameObject zombieInstance = Instantiate(prefabToSpawn, spawnPoint, Quaternion.identity);
+        ZombieAI zombieAI = zombieInstance.GetComponent<ZombieAI>();
+
+        int health = CalculateHealthBasedOnTime();
+        float speed = CalculateSpeedBasedOnTime();
+        zombieAI.Initialize(health, speed, zombieDamage);
     }
 
     public Vector2 GetRandomSpawnPoint() {
@@ -35,5 +59,15 @@ public class ZombieSpawnManager : MonoBehaviour {
         float y = Random.Range(cameraPosition.y - cameraHalfHeight - padding, cameraPosition.y + cameraHalfHeight + padding);
 
         return new Vector3(x, y, 0f);
+    }
+
+    private int CalculateHealthBasedOnTime() {
+        int minutes = Mathf.FloorToInt(GameManager.Instance.TimeAlive / 60);
+        return 1 + minutes;
+    }
+
+    private float CalculateSpeedBasedOnTime() {
+        // Example: Increase speed slightly over time
+        return 1.0f + GameManager.Instance.TimeAlive * 0.1f; // Adjust formula as needed
     }
 }

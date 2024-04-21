@@ -29,8 +29,8 @@ public class PlayerScript : MonoBehaviour {
     private int nextLevelThreshold = 5;
 
     public delegate void PlayerLevelUp();
-
     public event PlayerLevelUp LevelUp;
+
     public UnityEvent onUpgradeSelected;
 
     private void Start() {
@@ -93,7 +93,7 @@ public class PlayerScript : MonoBehaviour {
         // Calculate the aim direction
         Vector2 aimDirection = new Vector2(weaponJoystick.Horizontal, weaponJoystick.Vertical).normalized;
 
-        // audioManager.PlayProjectileSound();
+        audioManager.PlayProjectileSound();
 
         // Apply velocity to the projectile's rigidbody
         projectileRigidbody.velocity = aimDirection * projectileSpeed; // You need to set the value of projectileSpeed
@@ -183,6 +183,11 @@ public class PlayerScript : MonoBehaviour {
         xpBar.SetXP(currentXP);
         xpBar.SetMaxXp(nextLevelThreshold);
         playerLevelText.text = "Level " + currentPlayerLevel;
+
+        if(currentPlayerLevel % 5 == 0) {
+            Debug.Log("Increasing Difficulty");
+        }
+
     }
 
     void HandleUpgradeSelection(int upgradeChoice) {

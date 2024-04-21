@@ -11,7 +11,7 @@ public class AudioManager : MonoBehaviour {
     public AudioClip zombieDeathSound;
     public AudioClip xpPickUpSound;
 
-    public float audioLevel = 0.2f;
+    public float audioLevel;
 
     public void PlayProjectileSound() {
 

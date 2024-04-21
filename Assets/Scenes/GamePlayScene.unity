@@ -607,7 +607,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb9123c16ee9341ad903aaee14329160, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementSpeed: 2
+  movementSpeed: 1.8
   movementJoystick: {fileID: 1222378875}
   playfieldSize: 20
 --- !u!114 &151084664
@@ -6877,8 +6877,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   zombie: {fileID: 4439455380970377076, guid: 2de8f1c142136453a80dbc90fc6e645f, type: 3}
+  zombieBrute: {fileID: 1601151320828054871, guid: f77fac55e173c42e88c93c2f99866556, type: 3}
   spawnpoint: {fileID: 669297197}
   spawnRate: 1.5
+  zombieHitPoints: 1
+  zombieMoveSpeed: 1.5
+  zombieDamage: 0.1
 --- !u!4 &669297197
 Transform:
   m_ObjectHideFlags: 0
@@ -6956,7 +6960,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 4
+  orthographic size: 3
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -7771,7 +7775,7 @@ MonoBehaviour:
   projectileSound: {fileID: 8300000, guid: c3b449e59f8777042a76ab9483afc026, type: 3}
   zombieDeathSound: {fileID: 8300000, guid: d0f09b0b689617843b1d14a3e25f8d03, type: 3}
   xpPickUpSound: {fileID: 8300000, guid: 60db5db9e8f9f4e448eaa39d6fdfe22a, type: 3}
-  audioLevel: 0.2
+  audioLevel: 0.5
 --- !u!4 &1081946954
 Transform:
   m_ObjectHideFlags: 0
@@ -35432,6 +35436,67 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2036327002}
   m_CullTransparentMesh: 1
+--- !u!1001 &369688461996423437
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1411992436294449100, guid: f77fac55e173c42e88c93c2f99866556, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1411992436294449100, guid: f77fac55e173c42e88c93c2f99866556, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -9.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1411992436294449100, guid: f77fac55e173c42e88c93c2f99866556, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1411992436294449100, guid: f77fac55e173c42e88c93c2f99866556, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1411992436294449100, guid: f77fac55e173c42e88c93c2f99866556, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1411992436294449100, guid: f77fac55e173c42e88c93c2f99866556, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1411992436294449100, guid: f77fac55e173c42e88c93c2f99866556, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1411992436294449100, guid: f77fac55e173c42e88c93c2f99866556, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1411992436294449100, guid: f77fac55e173c42e88c93c2f99866556, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1411992436294449100, guid: f77fac55e173c42e88c93c2f99866556, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1601151320828054871, guid: f77fac55e173c42e88c93c2f99866556, type: 3}
+      propertyPath: m_Name
+      value: zombie brute
+      objectReference: {fileID: 0}
+    - target: {fileID: 7050818727673479791, guid: f77fac55e173c42e88c93c2f99866556, type: 3}
+      propertyPath: playerTransform
+      value: 
+      objectReference: {fileID: 151084668}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: f77fac55e173c42e88c93c2f99866556, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -35444,3 +35509,4 @@ SceneRoots:
   - {fileID: 1956142467}
   - {fileID: 1081946954}
   - {fileID: 669297197}
+  - {fileID: 369688461996423437}
