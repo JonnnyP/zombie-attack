@@ -607,17 +607,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb9123c16ee9341ad903aaee14329160, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-<<<<<<< HEAD
-  movementSpeed: 1.8
-=======
-<<<<<<< HEAD
-  movementSpeed: 50
-  movementJoystick: {fileID: 288166470}
-=======
   movementSpeed: 2
->>>>>>> 2fee8bcba93edf956d9abfe50a44fbc3eb1644b6
   movementJoystick: {fileID: 1222378875}
->>>>>>> a1a2757cb54926ce0f6875520066374c84566688
   playfieldSize: 20
 --- !u!114 &151084664
 MonoBehaviour:
@@ -2889,11 +2880,7 @@ LineRenderer:
   m_SortingOrder: -5
   m_Positions:
   - {x: 0, y: 0, z: 0}
-<<<<<<< HEAD
-  - {x: 0, y: 4, z: 0}
-=======
   - {x: 0, y: 6, z: 0}
->>>>>>> a1a2757cb54926ce0f6875520066374c84566688
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 0.025
@@ -2914,39 +2901,24 @@ LineRenderer:
       m_RotationOrder: 4
     colorGradient:
       serializedVersion: 2
-<<<<<<< HEAD
-      key0: {r: 0, g: 1, b: 0.067415714, a: 0.5019608}
-      key1: {r: 1, g: 1, b: 1, a: 0}
-      key2: {r: 1, g: 1, b: 1, a: 0.65882355}
-=======
       key0: {r: 0, g: 1, b: 0.068965435, a: 0.5019608}
       key1: {r: 0.32280168, g: 0.735849, b: 0.346237, a: 0.5019608}
       key2: {r: 1, g: 1, b: 1, a: 0}
->>>>>>> a1a2757cb54926ce0f6875520066374c84566688
       key3: {r: 0, g: 0, b: 0, a: 0}
       key4: {r: 0, g: 0, b: 0, a: 0}
       key5: {r: 0, g: 0, b: 0, a: 0}
       key6: {r: 0, g: 0, b: 0, a: 0}
       key7: {r: 0, g: 0, b: 0, a: 0}
       ctime0: 0
-<<<<<<< HEAD
-      ctime1: 65535
-=======
       ctime1: 45875
->>>>>>> a1a2757cb54926ce0f6875520066374c84566688
       ctime2: 65535
       ctime3: 0
       ctime4: 0
       ctime5: 0
       ctime6: 0
       ctime7: 0
-<<<<<<< HEAD
-      atime0: 52621
-      atime1: 60716
-=======
       atime0: 0
       atime1: 45489
->>>>>>> a1a2757cb54926ce0f6875520066374c84566688
       atime2: 65535
       atime3: 0
       atime4: 0
@@ -2955,13 +2927,8 @@ LineRenderer:
       atime7: 0
       m_Mode: 0
       m_ColorSpace: 0
-<<<<<<< HEAD
-      m_NumColorKeys: 2
-      m_NumAlphaKeys: 2
-=======
       m_NumColorKeys: 3
       m_NumAlphaKeys: 3
->>>>>>> a1a2757cb54926ce0f6875520066374c84566688
     numCornerVertices: 0
     numCapVertices: 0
     alignment: 0
@@ -6993,7 +6960,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 3
+  orthographic size: 3.5
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
