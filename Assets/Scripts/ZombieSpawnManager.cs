@@ -67,7 +67,7 @@ public class ZombieSpawnManager : MonoBehaviour {
     }
 
     private float CalculateSpeedBasedOnTime() {
-        // Example: Increase speed slightly over time
-        return 1.0f + GameManager.Instance.TimeAlive * 0.1f; // Adjust formula as needed
+        int minutes = Mathf.FloorToInt(GameManager.Instance.TimeAlive / 60);
+        return 1.0f + minutes / 2;
     }
 }
